@@ -225,9 +225,100 @@ mvn dependency:tree      # View dependency tree
 
 ### Base URL
 ```
-http://localhost:8080/api
+http://localhost:8080/api/v1
 ```
 
+### Authentication Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Login user |
+
+### User Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| GET | `/users/profile` | Get own profile | ✅ |
+| PUT | `/users/profile` | Update profile | ✅ |
+| PUT | `/users/password` | Change password | ✅ |
+| POST | `/users/upload-avatar` | Upload profile photo | ✅ |
+| POST | `/users/verify-phone` | Request phone verification | ✅ |
+| POST | `/users/verify-phone/confirm` | Confirm phone verification | ✅ |
+
+### Property Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| GET | `/properties` | Search/list properties with filters | ❌ |
+| GET | `/properties/{id}` | Get single property details | ❌ |
+| POST | `/properties` | Create new property | ✅ |
+| GET | `/properties/my-properties` | Get current user's properties | ✅ |
+| PUT | `/properties/{id}` | Update property | ✅ |
+| DELETE | `/properties/{id}` | Delete property | ✅ |
+| DELETE | `/admin/properties/{id}` | Admin delete property | ✅ Admin Only |
+
+**Query Parameters for Property Search:**
+- `governorate` - Filter by governorate
+- `city` - Filter by city
+- `propertyType` - Filter by type (APARTMENT, VILLA, STUDIO, etc.)
+- `minPrice` - Minimum price
+- `maxPrice` - Maximum price
+- `bedrooms` - Number of bedrooms
+- `page` - Page number (default: 0)
+- `size` - Items per page (default: 10)
+- `sortBy` - Sort field (default: createdAt)
+- `sortDir` - Sort direction (ASC or DESC, default: DESC)
+
+### Booking Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| POST | `/bookings` | Create booking request | ✅ |
+| GET | `/bookings` | Get user's bookings (as renter) | ✅ |
+| GET | `/bookings/owner` | Get bookings received (as owner) | ✅ Landlord/Broker |
+| GET | `/bookings/upcoming` | Get upcoming bookings (renter) | ✅ |
+| GET | `/bookings/owner/upcoming` | Get upcoming bookings (owner) | ✅ Landlord/Broker |
+| GET | `/bookings/{id}` | Get booking details | ✅ |
+| PUT | `/bookings/{id}/confirm` | Confirm booking (owner) | ✅ Landlord/Broker |
+| PUT | `/bookings/{id}/reject` | Reject booking (owner) | ✅ Landlord/Broker |
+| PUT | `/bookings/{id}/cancel` | Cancel booking | ✅ |
+| GET | `/bookings/availability/check` | Check property availability | ❌ |
+
+### Review Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| GET | `/reviews/property/{propertyId}` | Get property reviews | ❌ |
+| POST | `/reviews` | Create review | ✅ |
+| GET | `/reviews/my-reviews` | Get own reviews | ✅ |
+| PUT | `/reviews/{id}/response` | Owner responds to review | ✅ |
+| PUT | `/reviews/{id}/approve` | Admin approves review | ✅ Admin Only |
+| PUT | `/reviews/{id}/reject` | Admin rejects review | ✅ Admin Only |
+| GET | `/reviews/admin/all` | Get all reviews (admin) | ✅ Admin Only |
+| GET | `/reviews/admin/stats` | Get review statistics (admin) | ✅ Admin Only |
+
+### Favorite/Wishlist Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| POST | `/favorites` | Add to favorites | ✅ |
+| GET | `/favorites` | Get user's favorites | ✅ |
+| DELETE | `/favorites/{propertyId}` | Remove from favorites | ✅ |
+| GET | `/favorites/check/{propertyId}` | Check if favorited | ✅ |
+
+### Payment Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| POST | `/payments/create` | Create payment intent | ✅ |
+| POST | `/payments/confirm` | Confirm payment | ✅ |
+| POST | `/payments/refund` | Process refund | ✅ |
+| GET | `/payments/history` | Get payment history | ✅ |
+| GET | `/payments/transaction/{reference}` | Get transaction details | ❌ |
+
+### Search & Location Endpoints
+| Method | Endpoint | Description | Auth Required |
+|--------|----------|-------------|---|
+| POST | `/search` | Advanced property search | ❌ |
+| GET | `/locations/suggestions?q=search` | Get location autocomplete | ❌ |
+| GET | `/locations/popular?limit=10` | Get popular locations | ❌ |
+| GET | `/locations/governorates` | Get all governorates | ❌ |
+| GET | `/locations/cities?governorate=value` | Get cities by governorate | ❌ |
+| GET | `/locations/count` | Count properties by location | ❌ |
 
 ---
 
