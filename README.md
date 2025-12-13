@@ -5,6 +5,7 @@
 ## 📱 Platform Overview
 
 Ajarly enables users to:
+
 - **List Properties** - Landlords and brokers can easily list residential properties with detailed descriptions, images, and pricing
 - **Search & Discover** - Renters can search for properties using advanced filters (location, price, property type, amenities)
 - **Browse & Save** - Users can add properties to favorites/wishlist for later review
@@ -19,7 +20,6 @@ Ajarly enables users to:
 - **Domain:** Real Estate / Property Rental
 - **Target Market:** Egypt
 - **Technology Stack:** React + TypeScript (Frontend) | Spring Boot + Java (Backend) | MySQL (Database)
-
 
 ---
 
@@ -51,10 +51,12 @@ NHA-098/
 ### Prerequisites
 
 #### Frontend
+
 - **Node.js** >= 16.0.0
 - **npm** >= 7.0.0 or **yarn** >= 1.22.0
 
 #### Backend
+
 - **Java** 17 or higher
 - **Maven** >= 3.6.0
 - **MySQL** 5.7+ or MariaDB 10.3+
@@ -100,12 +102,14 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 ## 📦 Frontend Tech Stack
 
 ### Core
+
 - **React** 18.3.1 - UI library
 - **TypeScript** - Type-safe JavaScript
 - **Vite** 6.3.5 - Build tool & dev server
 - **React Router DOM** 7.9.6 - Client-side routing
 
 ### UI & Styling
+
 - **Tailwind CSS** - Utility-first CSS framework
 - **Radix UI** - Unstyled, accessible components
   - Dialogs, Dropdowns, Tooltips, Selects, Tabs, Accordions, etc.
@@ -114,6 +118,7 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 - **Sonner** - Toast notifications
 
 ### Components & Features
+
 - **Embla Carousel** 8.6.0 - Carousel/slider
 - **React Resizable Panels** 2.1.7 - Resizable layouts
 - **Next Themes** 0.4.6 - Dark mode support
@@ -122,8 +127,8 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 - **React Day Picker** 8.10.1 - Date selection
 - **Date-fns** - Date utilities
 
-
 ### Testing
+
 - **Jest** 30.2.0 - Testing framework
 - **ts-jest** - Jest + TypeScript support
 
@@ -132,19 +137,23 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 ## 💾 Backend Tech Stack
 
 ### Core Framework
+
 - **Spring Boot** 3.2.0 - Java application framework
 - **Spring Web** - REST API support
 - **Spring Security** - Authentication & authorization
 - **Java** 17 - Latest stable Java LTS
 
 ### Database
+
 - **MySQL/MariaDB** - Database
 - Schema and sample queries provided in SQL files
 
 ### External Services
+
 - **Cloudinary** 2.0.0 - Cloud image/video storage and management
 
 ### Utilities
+
 - **Lombok** 1.18.30 - Reduce boilerplate code
 - **dotenv-java** 2.2.4 - Environment variable management
 
@@ -153,6 +162,7 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 ## 🗄️ Database Setup
 
 ### Schema
+
 The `ajarly_schema.sql` file contains all table definitions and relationships.
 
 ### Import Schema
@@ -179,6 +189,7 @@ SPRING_DATASOURCE_PASSWORD=your_password
 ## ⚙️ Environment Configuration
 
 ### Frontend
+
 Environment variables can be set in `.env.local` (create if needed):
 
 ```env
@@ -187,6 +198,7 @@ VITE_ENVIRONMENT=development
 ```
 
 ### Backend
+
 Environment variables in `Backend/.env`:
 
 ```env
@@ -242,38 +254,43 @@ mvn dependency:tree      # View dependency tree
 ## 🌐 API Endpoints
 
 ### Base URL
+
 ```
 http://localhost:8080/api/v1
 ```
 
 ### Authentication Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/auth/register` | Register a new user |
-| POST | `/auth/login` | Login user |
+
+| Method | Endpoint         | Description         |
+| ------ | ---------------- | ------------------- |
+| POST   | `/auth/register` | Register a new user |
+| POST   | `/auth/login`    | Login user          |
 
 ### User Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| GET | `/users/profile` | Get own profile | ✅ |
-| PUT | `/users/profile` | Update profile | ✅ |
-| PUT | `/users/password` | Change password | ✅ |
-| POST | `/users/upload-avatar` | Upload profile photo | ✅ |
-| POST | `/users/verify-phone` | Request phone verification | ✅ |
-| POST | `/users/verify-phone/confirm` | Confirm phone verification | ✅ |
+
+| Method | Endpoint                      | Description                | Auth Required |
+| ------ | ----------------------------- | -------------------------- | ------------- |
+| GET    | `/users/profile`              | Get own profile            | ✅            |
+| PUT    | `/users/profile`              | Update profile             | ✅            |
+| PUT    | `/users/password`             | Change password            | ✅            |
+| POST   | `/users/upload-avatar`        | Upload profile photo       | ✅            |
+| POST   | `/users/verify-phone`         | Request phone verification | ✅            |
+| POST   | `/users/verify-phone/confirm` | Confirm phone verification | ✅            |
 
 ### Property Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| GET | `/properties` | Search/list properties with filters | ❌ |
-| GET | `/properties/{id}` | Get single property details | ❌ |
-| POST | `/properties` | Create new property | ✅ |
-| GET | `/properties/my-properties` | Get current user's properties | ✅ |
-| PUT | `/properties/{id}` | Update property | ✅ |
-| DELETE | `/properties/{id}` | Delete property | ✅ |
-| DELETE | `/admin/properties/{id}` | Admin delete property | ✅ Admin Only |
+
+| Method | Endpoint                    | Description                         | Auth Required |
+| ------ | --------------------------- | ----------------------------------- | ------------- |
+| GET    | `/properties`               | Search/list properties with filters | ❌            |
+| GET    | `/properties/{id}`          | Get single property details         | ❌            |
+| POST   | `/properties`               | Create new property                 | ✅            |
+| GET    | `/properties/my-properties` | Get current user's properties       | ✅            |
+| PUT    | `/properties/{id}`          | Update property                     | ✅            |
+| DELETE | `/properties/{id}`          | Delete property                     | ✅            |
+| DELETE | `/admin/properties/{id}`    | Admin delete property               | ✅ Admin Only |
 
 **Query Parameters for Property Search:**
+
 - `governorate` - Filter by governorate
 - `city` - Filter by city
 - `propertyType` - Filter by type (APARTMENT, VILLA, STUDIO, etc.)
@@ -286,57 +303,62 @@ http://localhost:8080/api/v1
 - `sortDir` - Sort direction (ASC or DESC, default: DESC)
 
 ### Booking Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| POST | `/bookings` | Create booking request | ✅ |
-| GET | `/bookings` | Get user's bookings (as renter) | ✅ |
-| GET | `/bookings/owner` | Get bookings received (as owner) | ✅ Landlord/Broker |
-| GET | `/bookings/upcoming` | Get upcoming bookings (renter) | ✅ |
-| GET | `/bookings/owner/upcoming` | Get upcoming bookings (owner) | ✅ Landlord/Broker |
-| GET | `/bookings/{id}` | Get booking details | ✅ |
-| PUT | `/bookings/{id}/confirm` | Confirm booking (owner) | ✅ Landlord/Broker |
-| PUT | `/bookings/{id}/reject` | Reject booking (owner) | ✅ Landlord/Broker |
-| PUT | `/bookings/{id}/cancel` | Cancel booking | ✅ |
-| GET | `/bookings/availability/check` | Check property availability | ❌ |
+
+| Method | Endpoint                       | Description                      | Auth Required      |
+| ------ | ------------------------------ | -------------------------------- | ------------------ |
+| POST   | `/bookings`                    | Create booking request           | ✅                 |
+| GET    | `/bookings`                    | Get user's bookings (as renter)  | ✅                 |
+| GET    | `/bookings/owner`              | Get bookings received (as owner) | ✅ Landlord/Broker |
+| GET    | `/bookings/upcoming`           | Get upcoming bookings (renter)   | ✅                 |
+| GET    | `/bookings/owner/upcoming`     | Get upcoming bookings (owner)    | ✅ Landlord/Broker |
+| GET    | `/bookings/{id}`               | Get booking details              | ✅                 |
+| PUT    | `/bookings/{id}/confirm`       | Confirm booking (owner)          | ✅ Landlord/Broker |
+| PUT    | `/bookings/{id}/reject`        | Reject booking (owner)           | ✅ Landlord/Broker |
+| PUT    | `/bookings/{id}/cancel`        | Cancel booking                   | ✅                 |
+| GET    | `/bookings/availability/check` | Check property availability      | ❌                 |
 
 ### Review Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| GET | `/reviews/property/{propertyId}` | Get property reviews | ❌ |
-| POST | `/reviews` | Create review | ✅ |
-| GET | `/reviews/my-reviews` | Get own reviews | ✅ |
-| PUT | `/reviews/{id}/response` | Owner responds to review | ✅ |
-| PUT | `/reviews/{id}/approve` | Admin approves review | ✅ Admin Only |
-| PUT | `/reviews/{id}/reject` | Admin rejects review | ✅ Admin Only |
-| GET | `/reviews/admin/all` | Get all reviews (admin) | ✅ Admin Only |
-| GET | `/reviews/admin/stats` | Get review statistics (admin) | ✅ Admin Only |
+
+| Method | Endpoint                         | Description                   | Auth Required |
+| ------ | -------------------------------- | ----------------------------- | ------------- |
+| GET    | `/reviews/property/{propertyId}` | Get property reviews          | ❌            |
+| POST   | `/reviews`                       | Create review                 | ✅            |
+| GET    | `/reviews/my-reviews`            | Get own reviews               | ✅            |
+| PUT    | `/reviews/{id}/response`         | Owner responds to review      | ✅            |
+| PUT    | `/reviews/{id}/approve`          | Admin approves review         | ✅ Admin Only |
+| PUT    | `/reviews/{id}/reject`           | Admin rejects review          | ✅ Admin Only |
+| GET    | `/reviews/admin/all`             | Get all reviews (admin)       | ✅ Admin Only |
+| GET    | `/reviews/admin/stats`           | Get review statistics (admin) | ✅ Admin Only |
 
 ### Favorite/Wishlist Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| POST | `/favorites` | Add to favorites | ✅ |
-| GET | `/favorites` | Get user's favorites | ✅ |
-| DELETE | `/favorites/{propertyId}` | Remove from favorites | ✅ |
-| GET | `/favorites/check/{propertyId}` | Check if favorited | ✅ |
+
+| Method | Endpoint                        | Description           | Auth Required |
+| ------ | ------------------------------- | --------------------- | ------------- |
+| POST   | `/favorites`                    | Add to favorites      | ✅            |
+| GET    | `/favorites`                    | Get user's favorites  | ✅            |
+| DELETE | `/favorites/{propertyId}`       | Remove from favorites | ✅            |
+| GET    | `/favorites/check/{propertyId}` | Check if favorited    | ✅            |
 
 ### Payment Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| POST | `/payments/create` | Create payment intent | ✅ |
-| POST | `/payments/confirm` | Confirm payment | ✅ |
-| POST | `/payments/refund` | Process refund | ✅ |
-| GET | `/payments/history` | Get payment history | ✅ |
-| GET | `/payments/transaction/{reference}` | Get transaction details | ❌ |
+
+| Method | Endpoint                            | Description             | Auth Required |
+| ------ | ----------------------------------- | ----------------------- | ------------- |
+| POST   | `/payments/create`                  | Create payment intent   | ✅            |
+| POST   | `/payments/confirm`                 | Confirm payment         | ✅            |
+| POST   | `/payments/refund`                  | Process refund          | ✅            |
+| GET    | `/payments/history`                 | Get payment history     | ✅            |
+| GET    | `/payments/transaction/{reference}` | Get transaction details | ❌            |
 
 ### Search & Location Endpoints
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---|
-| POST | `/search` | Advanced property search | ❌ |
-| GET | `/locations/suggestions?q=search` | Get location autocomplete | ❌ |
-| GET | `/locations/popular?limit=10` | Get popular locations | ❌ |
-| GET | `/locations/governorates` | Get all governorates | ❌ |
-| GET | `/locations/cities?governorate=value` | Get cities by governorate | ❌ |
-| GET | `/locations/count` | Count properties by location | ❌ |
+
+| Method | Endpoint                              | Description                  | Auth Required |
+| ------ | ------------------------------------- | ---------------------------- | ------------- |
+| POST   | `/search`                             | Advanced property search     | ❌            |
+| GET    | `/locations/suggestions?q=search`     | Get location autocomplete    | ❌            |
+| GET    | `/locations/popular?limit=10`         | Get popular locations        | ❌            |
+| GET    | `/locations/governorates`             | Get all governorates         | ❌            |
+| GET    | `/locations/cities?governorate=value` | Get cities by governorate    | ❌            |
+| GET    | `/locations/count`                    | Count properties by location | ❌            |
 
 ---
 
@@ -384,6 +406,7 @@ mvn surefire-report:report
 ## 📂 Project Structure
 
 ### Frontend (`/Frontend/src`)
+
 ```
 src/
 ├── components/       # Reusable React components
@@ -397,6 +420,7 @@ src/
 ```
 
 ### Backend (`/Backend/src/main/java/com/ajarly`)
+
 ```
 ├── controller/      # REST API endpoints
 ├── service/         # Business logic
@@ -422,6 +446,7 @@ npm run build
 ```
 
 **Hosting Options:**
+
 - Vercel (recommended for React/Vite)
 - Netlify
 - GitHub Pages
@@ -438,6 +463,7 @@ mvn clean package
 ```
 
 **Hosting Options:**
+
 - AWS EC2 / ElasticBeanstalk
 - Heroku
 - DigitalOcean
@@ -465,12 +491,14 @@ docker run -p 8080:8080 ajarly-backend
 ## 🔍 Code Quality
 
 ### Frontend Linting
+
 ```bash
 # ESLint and TypeScript checking is configured
 npm run lint       # (if configured)
 ```
 
 ### Backend Code Quality
+
 ```bash
 # SonarQube integration (if configured)
 mvn sonar:sonar
@@ -483,6 +511,7 @@ mvn sonar:sonar
 ### Updating Dependencies
 
 **Frontend:**
+
 ```bash
 npm outdated              # Check for updates
 npm update                # Update dependencies
@@ -490,6 +519,7 @@ npm install package@^x.y.z  # Install specific version
 ```
 
 **Backend:**
+
 ```bash
 mvn versions:display-dependency-updates  # Check for updates
 mvn versions:use-latest-versions        # Update to latest
@@ -502,11 +532,13 @@ mvn versions:use-latest-versions        # Update to latest
 ### Frontend Issues
 
 **Port 5173 already in use:**
+
 ```bash
 npm run dev -- --port 3000  # Use different port
 ```
 
 **Module not found errors:**
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -514,6 +546,7 @@ npm install
 ```
 
 **TypeScript compilation errors:**
+
 ```bash
 npm run build  # Check build errors before deployment
 ```
@@ -521,17 +554,20 @@ npm run build  # Check build errors before deployment
 ### Backend Issues
 
 **Database connection errors:**
+
 - Verify MySQL is running: `mysql -u root -p`
 - Check `.env` credentials match your setup
 - Ensure database `ajarly` exists
 
 **Port 8080 already in use:**
+
 ```bash
 # Change in application.properties or .env:
 SERVER_PORT=8081
 ```
 
 **Cloudinary upload errors:**
+
 - Verify API keys in `.env`
 - Check Cloudinary account status
 
@@ -555,34 +591,6 @@ SERVER_PORT=8081
 - **Password Encryption** - Secure password storage
 - **Environment Variables** - Sensitive data not in code
 - **JWT Tokens** - Stateless authentication (if implemented)
-
-### Security Checklist Before Deployment
-
-- [ ] Change default passwords
-- [ ] Update `.env` with production values
-- [ ] Enable HTTPS in production
-- [ ] Set `SPRING_JPA_HIBERNATE_DDL_AUTO=validate`
-- [ ] Review CORS settings
-- [ ] Add rate limiting
-- [ ] Enable logging and monitoring
-
----
-
-
----
-
-## 📋 Checklist for Production
-
-- [ ] Frontend build optimized (`npm run build`)
-- [ ] Backend packaged as JAR (`mvn clean package`)
-- [ ] Environment variables configured for production
-- [ ] Database backed up
-- [ ] SSL/HTTPS certificate installed
-- [ ] Cloudinary credentials secured
-- [ ] Monitoring and logging configured
-- [ ] Error handling and user feedback tested
-- [ ] Performance tested under load
-- [ ] Security vulnerabilities scanned
 
 ---
 
@@ -615,6 +623,7 @@ This project is proprietary software. All rights reserved. Unauthorized copying,
 ## 🔗 Useful Links
 
 ### Documentation
+
 - [React Documentation](https://react.dev)
 - [Spring Boot Documentation](https://spring.io/projects/spring-boot)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
@@ -623,6 +632,7 @@ This project is proprietary software. All rights reserved. Unauthorized copying,
 - [Maven Documentation](https://maven.apache.org/guides/)
 
 ### Tools & Services
+
 - [Cloudinary Documentation](https://cloudinary.com/documentation)
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Postman](https://www.postman.com/) - API testing
@@ -631,17 +641,17 @@ This project is proprietary software. All rights reserved. Unauthorized copying,
 
 ## 👨‍💻 Technology Stack Summary
 
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| **Frontend Framework** | React | 18.3.1 |
-| **Frontend Language** | TypeScript | - |
-| **Build Tool** | Vite | 6.3.5 |
-| **UI Framework** | Tailwind CSS + Radix UI | - |
-| **Backend Framework** | Spring Boot | 3.2.0 |
-| **Language** | Java | 17 |
-| **Database** | MySQL/MariaDB | 5.7+ |
-| **Package Manager (Frontend)** | npm | 7.0+ |
-| **Build Tool (Backend)** | Maven | 3.6.0+ |
+| Layer                          | Technology              | Version |
+| ------------------------------ | ----------------------- | ------- |
+| **Frontend Framework**         | React                   | 18.3.1  |
+| **Frontend Language**          | TypeScript              | -       |
+| **Build Tool**                 | Vite                    | 6.3.5   |
+| **UI Framework**               | Tailwind CSS + Radix UI | -       |
+| **Backend Framework**          | Spring Boot             | 3.2.0   |
+| **Language**                   | Java                    | 17      |
+| **Database**                   | MySQL/MariaDB           | 5.7+    |
+| **Package Manager (Frontend)** | npm                     | 7.0+    |
+| **Build Tool (Backend)**       | Maven                   | 3.6.0+  |
 
 ---
 
