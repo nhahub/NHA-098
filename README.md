@@ -231,16 +231,6 @@ mvn dependency:tree      # View dependency tree
 http://localhost:8080/api
 ```
 
-### Main Endpoints
-
-| Resource | Endpoints | Description |
-|----------|-----------|-------------|
-| **Auth** | POST `/auth/login`, POST `/auth/register` | User authentication |
-| **Courses** | GET/POST `/courses`, GET/PUT/DELETE `/courses/{id}` | Course management |
-| **Departments** | GET/POST `/departments`, GET/PUT/DELETE `/departments/{id}` | Department management |
-| **Campuses** | GET/POST `/campuses`, GET/PUT/DELETE `/campuses/{id}` | Campus management |
-| **Users** | GET `/users/{id}`, PUT `/users/{id}` | User management |
-| **Files** | POST `/files/upload` | File upload (Cloudinary) |
 
 ---
 
@@ -472,21 +462,6 @@ SERVER_PORT=8081
 
 ---
 
-## 🤝 Contributing
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** changes: `git commit -m 'Add amazing feature'`
-4. **Push** to branch: `git push origin feature/amazing-feature`
-5. **Create** a Pull Request
-
-### Contribution Guidelines
-
-- Follow existing code style
-- Write meaningful commit messages
-- Add tests for new features
-- Update documentation as needed
-- Keep PRs focused and reasonably sized
 
 ---
 
