@@ -107,10 +107,6 @@ java -jar target/backend-0.0.1-SNAPSHOT.jar
 - **React Day Picker** 8.10.1 - Date selection
 - **Date-fns** - Date utilities
 
-### 3D Graphics
-- **Three.js** 0.160.0 - 3D rendering engine
-- **React Three Fiber** 8.15.12 - React renderer for Three.js
-- **React Three Drei** 9.92.7 - Helpful Three.js utilities
 
 ### Testing
 - **Jest** 30.2.0 - Testing framework
