@@ -1,6 +1,24 @@
-# NHA-098: Ajarly  Platform
+# Ajarly - Home Local Rental Platform
 
-A comprehensive full-stack  local rental system built with modern web technologies. This project consists of a React/TypeScript frontend and a Spring Boot backend API.
+**Ajarly** is a comprehensive full-stack home rental marketplace platform designed to connect property owners, landlords, and brokers with renters. Built with modern web technologies, the platform provides a seamless experience for listing, discovering, and booking residential properties across Egypt.
+
+## 📱 Platform Overview
+
+Ajarly enables users to:
+- **List Properties** - Landlords and brokers can easily list residential properties with detailed descriptions, images, and pricing
+- **Search & Discover** - Renters can search for properties using advanced filters (location, price, property type, amenities)
+- **Browse & Save** - Users can add properties to favorites/wishlist for later review
+- **Book & Pay** - Secure booking system with integrated payment processing
+- **Review & Rate** - Community reviews and ratings to build trust
+- **Manage Bookings** - Real-time booking status updates and management
+
+## 🏢 Project Information
+
+- **Project Code:** NHA-098
+- **Type:** Full-Stack Web Application
+- **Domain:** Real Estate / Property Rental
+- **Target Market:** Egypt
+- **Technology Stack:** React + TypeScript (Frontend) | Spring Boot + Java (Backend) | MySQL (Database)
 
 
 ---
