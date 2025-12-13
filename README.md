@@ -1,10 +1,7 @@
-# NHA-098: Ajarly Educational Platform
+# NHA-098: Ajarly  Platform
 
-A comprehensive full-stack educational management system built with modern web technologies. This project consists of a React/TypeScript frontend and a Spring Boot backend API.
+A comprehensive full-stack  local rental system built with modern web technologies. This project consists of a React/TypeScript frontend and a Spring Boot backend API.
 
-## 📋 Project Overview
-
-Ajarly is an educational platform that provides tools for managing courses, campuses, departments, and user authentication. The system supports multiple user roles (students, instructors, administrators) with an intuitive interface and robust backend infrastructure.
 
 ---
 
