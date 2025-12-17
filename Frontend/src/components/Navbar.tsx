@@ -52,6 +52,18 @@ export function Navbar({
   const [localLanguage, setLocalLanguage] = useState<"en" | "ar">(language);
   const { favorites } = useFavorites();
   const { profile, fetchProfile } = useProfile();
+  const isHomePage =
+    window.location.pathname === "/" || window.location.pathname === "/home";
+
+  useEffect(() => {
+    if (isHomePage) {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > window.innerHeight - 100);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [isHomePage]);
 
   // Fetch profile when user logs in
   useEffect(() => {
@@ -107,9 +119,26 @@ export function Navbar({
   const getProfilePhoto = () => {
     return user?.profilePhoto || user?.avatar || profile?.profilePhoto || null;
   };
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <nav
+      className={`${
+        isHomePage ? "fixed" : "relative"
+      } top-0 z-50 w-full transition-all duration-300 border-b ${
+        isHomePage && !isScrolled
+          ? "bg-transparent backdrop-blur-md border-white/10"
+          : "bg-white/95 backdrop-blur-sm border-gray-200"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -126,13 +155,13 @@ export function Navbar({
           <div className="hidden md:flex items-center gap-6">
             <button
               onClick={() => handleNavigation("properties")}
-              className="text-[#2B2B2B] hover:text-[#00BFA6] transition-colors"
+              className="text-black-600 hover:text-[#00BFA6] transition-colors"
             >
               {isArabic ? "استكشف" : "Explore"}
             </button>
             <button
               onClick={() => handleNavigation("register?role=owner")}
-              className="text-[#2B2B2B] hover:text-[#00BFA6] transition-colors"
+              className="text-black-200 hover:text-[#00BFA6] transition-colors"
             >
               {isArabic ? "كن مضيفاً" : "Become a Host"}
             </button>
@@ -343,13 +372,13 @@ export function Navbar({
                 <Button
                   variant="outline"
                   onClick={() => handleNavigation("login")}
-                  className="border-[#00BFA6] text-[#00BFA6] hover:bg-[#00BFA6] hover:text-white"
+                  className=" border-[#00BFA6] text-[#00BFA6] hover:bg-[#00BFA6] hover:text-white"
                 >
                   {isArabic ? "تسجيل الدخول" : "Log in"}
                 </Button>
                 <Button
                   onClick={() => handleNavigation("register")}
-                  className="bg-[#FF6B6B] text-white hover:bg-[#FF5252]"
+                  className="!bg-[#FF5S78] text-white hover:bg-[#FF5252]"
                 >
                   {isArabic ? "إنشاء حساب" : "Sign up"}
                 </Button>
@@ -365,13 +394,13 @@ export function Navbar({
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <SheetTitle className="text-2xl font-semibold text-[#2B2B2B] mb-6">
+              <SheetTitle className="text-2xl font-semibold text-[#2B2B2B] mb-6 p-4 pt-8 ">
                 {isArabic ? "القائمة" : "Menu"}
               </SheetTitle>
               <SheetDescription className="sr-only">
                 {isArabic ? "قائمة التنقل الرئيسية" : "Main navigation menu"}
               </SheetDescription>
-              <div className="flex flex-col gap-6 mt-8">
+              <div className="flex flex-col gap-6 mt-8 px-6">
                 {user ? (
                   <>
                     <div className="pb-4 border-b flex items-center gap-3">
